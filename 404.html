@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Halaman Tidak Ditemukan - Error 404</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+                background-size: 400% 400%;
+                animation: gradientBG 15s ease infinite;
+                color: white;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+                overflow-x: hidden;
+            }
+
+            @keyframes gradientBG {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .container {
+                max-width: 800px;
+                width: 100%;
+                padding: 40px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 20px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .container::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+                z-index: -1;
+            }
+
+            .error-code {
+                font-size: 10rem;
+                font-weight: 900;
+                line-height: 1;
+                margin-bottom: 20px;
+                text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+                position: relative;
+                display: inline-block;
+            }
+
+            .error-code::after {
+                content: '404';
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                color: rgba(255, 255, 255, 0.1);
+                z-index: -1;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #fdbb2d;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+                line-height: 1.6;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .search-box {
+                display: flex;
+                max-width: 500px;
+                margin: 0 auto 30px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                border-radius: 50px;
+                overflow: hidden;
+            }
+
+            .search-box input {
+                flex: 1;
+                padding: 15px 20px;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .search-box button {
+                padding: 0 25px;
+                border: none;
+                background: #fdbb2d;
+                color: #1a2a6c;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .search-box button:hover {
+                background: #ffcc44;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                display: inline-block;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .btn-primary {
+                background: #fdbb2d;
+                color: #1a2a6c;
+            }
+
+            .btn-secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .floating-elements {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .floating-element {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                animation: float 15s infinite linear;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+
+                50% {
+                    transform: translateY(-20px) rotate(180deg);
+                }
+
+                100% {
+                    transform: translateY(0) rotate(360deg);
+                }
+            }
+
+            .floating-element:nth-child(1) {
+                width: 80px;
+                height: 80px;
+                top: 10%;
+                left: 10%;
+                animation-duration: 20s;
+            }
+
+            .floating-element:nth-child(2) {
+                width: 60px;
+                height: 60px;
+                top: 70%;
+                left: 80%;
+                animation-duration: 15s;
+            }
+
+            .floating-element:nth-child(3) {
+                width: 40px;
+                height: 40px;
+                top: 40%;
+                left: 85%;
+                animation-duration: 25s;
+            }
+
+            .floating-element:nth-child(4) {
+                width: 100px;
+                height: 100px;
+                top: 80%;
+                left: 15%;
+                animation-duration: 18s;
+            }
+
+            .floating-element:nth-child(5) {
+                width: 50px;
+                height: 50px;
+                top: 15%;
+                left: 75%;
+                animation-duration: 22s;
+            }
+
+            .error-animation {
+                margin: 30px auto;
+                width: 200px;
+                height: 200px;
+                position: relative;
+            }
+
+            .error-animation::before,
+            .error-animation::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+
+            .error-animation::before {
+                width: 180px;
+                height: 180px;
+                border: 5px solid rgba(253, 187, 45, 0.5);
+            }
+
+            .error-animation::after {
+                width: 120px;
+                height: 120px;
+                border: 5px solid rgba(253, 187, 45, 0.8);
+                animation-delay: 0.5s;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) scale(1.2);
+                    opacity: 0;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .error-code {
+                    font-size: 7rem;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+
+                .container {
+                    padding: 30px 20px;
+                }
+
+                .buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .btn {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .error-code {
+                    font-size: 5rem;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="container">
+            <div class="error-animation"></div>
+            <div class="error-code">404</div>
+            <h1>Halaman Tidak Ditemukan</h1>
+            <p>Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin halaman tersebut telah dipindahkan, dihapus,
+                atau Anda salah mengetik URL.</p>
+
+            <div class="search-box">
+                <input type="text" placeholder="Cari sesuatu...">
+                <button type="button">Cari</button>
+            </div>
+
+            <div class="buttons">
+                <a href="/" class="btn btn-primary">Kembali ke Beranda</a>
+                <a href="#" class="btn btn-secondary">Hubungi Dukungan</a>
+            </div>
+        </div>
+
+        <script>
+            // Animasi untuk elemen mengambang
+            document.addEventListener('DOMContentLoaded', function () {
+                const floatingElements = document.querySelectorAll('.floating-element');
+
+                floatingElements.forEach(element => {
+                    // Set posisi acak untuk elemen mengambang
+                    element.style.left = Math.random() * 100 + '%';
+                    element.style.top = Math.random() * 100 + '%';
+
+                    // Set durasi animasi acak
+                    const duration = 15 + Math.random() * 15;
+                    element.style.animationDuration = duration + 's';
+                });
+
+                // Efek ketik untuk judul
+                const title = document.querySelector('h1');
+                const originalText = title.textContent;
+                title.textContent = '';
+
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < originalText.length) {
+                        title.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+
+                // Mulai efek ketik setelah delay
+                setTimeout(typeWriter, 1000);
+
+                // Efek hover untuk tombol
+                const buttons = document.querySelectorAll('.btn');
+                buttons.forEach(button => {
+                    button.addEventListener('mouseenter', function () {
+                        this.style.transform = 'translateY(-5px)';
+                    });
+
+                    button.addEventListener('mouseleave', function () {
+                        this.style.transform = 'translateY(0)';
+                    });
+                });
+
+                // Efek pencarian
+                const searchButton = document.querySelector('.search-box button');
+                const searchInput = document.querySelector('.search-box input');
+
+                searchButton.addEventListener('click', function () {
+                    if (searchInput.value.trim() === '') {
+                        searchInput.placeholder = 'Silakan masukkan kata kunci...';
+                        searchInput.style.border = '2px solid #ff6b6b';
+                        setTimeout(() => {
+                            searchInput.style.border = 'none';
+                            searchInput.placeholder = 'Cari sesuatu...';
+                        }, 2000);
+                    } else {
+                        // Simulasi pencarian
+                        searchButton.textContent = 'Mencari...';
+                        searchButton.disabled = true;
+
+                        setTimeout(() => {
+                            alert('Maaf, pencarian untuk "' + searchInput.value + '" tidak menghasilkan hasil.');
+                            searchButton.textContent = 'Cari';
+                            searchButton.disabled = false;
+                            searchInput.value = '';
+                        }, 1500);
+                    }
+                });
+
+                // Tambahkan efek saat halaman dimuat
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.style.transition = 'opacity 1s ease';
+                    document.body.style.opacity = '1';
+                }, 100);
+            });
+        </script>
+    </body>
+
+</html>
